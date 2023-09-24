@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../../ASSETS/logo.png'
 import './Navbar.css'
+import Dropdown from 'react-bootstrap/Dropdown'
 const Navbar = () => {
   const [cartquantity, setcartquantity] = useState(0)
   return (
@@ -33,6 +34,30 @@ const Navbar = () => {
 
       </div>
       <div className='s2'>
+      <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown-basic">
+        Categorias
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">Novidades</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Mouses</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Teclados</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+    <a>Sobre nos</a>
+    <a>Contato</a>
+    <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown-basic">
+        Mais
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">FAQ</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Politicas de privacidade</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Termos e condicoes</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
 
       </div>
     </nav>

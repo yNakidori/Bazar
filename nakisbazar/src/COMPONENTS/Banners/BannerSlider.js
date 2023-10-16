@@ -6,17 +6,17 @@ const BannerSlider = () => {
   const data = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2765&q=80',
-      title: 'O melhor da tecnologia',
-      description: 'teste',
-      button: 'https://www.google.com'
+      image: 'https://images.unsplash.com/photo-1591489378430-ef2f4c626b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80',
+      title: 'AS MELHORES MARCAS',
+      description: 'COM GARANTIA E CONFIABILIDADE',
+      button: 'https://www.nvidia.com/pt-br/'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2765&q=80',
-      title: 'O melhor da tecnologia',
-      description: 'teste',
-      button: 'https://www.google.com'
+      image: 'https://images.unsplash.com/photo-1625633979481-bcbaa10165f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFkZW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+      title: 'O MELHOR ECOMMERCE DE TECNOLOGIA DA REGIAO',
+      description: 'OS MELHORES PRECOS DO MERCADO',
+      button: 'https://www.amd.com/pt.html'
     }
   ]
 
@@ -40,7 +40,7 @@ const BannerSlider = () => {
                 <div className='content'>
                   <h1>{item.title}</h1>
                   <span>{item.description}</span>
-                  <button>Shop More</button>
+                  <button>VEJA AGORA</button>
                 </div>
               </div>
             )

@@ -12,10 +12,10 @@ const HomeCategories = () => {
         <img src = {ft1} alt = 'ft1'/>      
         <div className='content'>
           <h1>
-            Some text
+            REDRAGON
           </h1>
           <p>
-            More text
+            NETWORK
           </p>
         </div>
       </div>
@@ -23,10 +23,10 @@ const HomeCategories = () => {
         <img src = {ft2} alt = 'ft2'/>
         <div className='content'>
           <h1>
-            Some text
+            SCYTHE
           </h1>
           <p>
-            More text
+            COOLING
           </p>
         </div>
       </div>
@@ -34,10 +34,10 @@ const HomeCategories = () => {
         <img src = {ft3} alt = 'ft3'/>
         <div className='content'>
           <h1>
-            Some text
+            GAMDIAS
           </h1>
           <p>
-            More text
+            PERFORMANCE
           </p>
         </div>
       </div>
@@ -45,10 +45,10 @@ const HomeCategories = () => {
         <img src = {ft4} alt = 'ft4'/>
         <div className='content'>
           <h1>
-            Some text
+            AKKO
           </h1>
           <p>
-            More text
+            CUSTOM
           </p>
         </div>
       </div>

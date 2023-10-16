@@ -64,6 +64,6 @@
 }
 
 .bannerslider .imagecont button:hover{
-    background-color: var(--col1);
+    background-color: #f7b9da;
     color: white;
 }

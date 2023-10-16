@@ -1,9 +1,9 @@
 import React from 'react'
 import './HomeCategories.css'
-import ft1 from '../../ASSETS/ft1.png'
-import ft2 from '../../ASSETS/ft2.png'
-import ft3 from '../../ASSETS/ft3.png'
-import ft4 from '../../ASSETS/ft4.png'
+import ft1 from '../../ASSETS/IMAGES/marcas/ft1.png'
+import ft2 from '../../ASSETS/IMAGES/marcas/ft2.png'
+import ft3 from '../../ASSETS/IMAGES/marcas/ft3.png'
+import ft4 from '../../ASSETS/IMAGES/marcas/ft4.png'
 
 const HomeCategories = () => {
   return (

@@ -15,42 +15,42 @@ const CategorySidebar = () => {
         {
             id: 1,
             categoryimage: ic1,
-            categoryname: 'Category 1'
+            categoryname: 'TECLADOS'
         },
         {
           id: 2,
           categoryimage: ic2,
-          categoryname: 'Category 2'
+          categoryname: 'MOUSES'
         },
         {
           id: 3,
           categoryimage: ic3,
-          categoryname: 'Category 3'
+          categoryname: 'MONITORES'
         },
         {
           id: 4,
           categoryimage: ic4,
-          categoryname: 'Category 4'
+          categoryname: 'GABINETES'
         },
         {
           id: 5,
           categoryimage: ic5,
-          categoryname: 'Category 5'
+          categoryname: 'COOLERS'
         },
         {
           id: 6,
           categoryimage: ic6,
-          categoryname: 'Category 6'
+          categoryname: 'INTEL'
         },
         {
           id: 7,
           categoryimage: ic7,
-          categoryname: 'Category 7'
+          categoryname: 'AMD'
         },
         {
           id: 8,
           categoryimage: ic8,
-          categoryname: 'Catagory 8'
+          categoryname: 'NVIDIA'
         },
     ]
   return (

@@ -14,13 +14,15 @@
     display: flex;
     align-items: center;
     border: 1px solid #e7e7e7;
+    border-radius: 90px;
+    border-style: calc(100% - 20px);
     padding: 10px 20px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .categorysidebar .category:hover{
-    background-color: #8f8a9a;
+    background-color: #a18eca;
     cursor: pointer;
 }
 

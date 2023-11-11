@@ -7,6 +7,8 @@
 .allproducts h1{
     font-size: 30px;
     text-align: center;
+    color: var(--col1);
+    border-bottom: 2px solid var(--col1);
 }
 
 .allproducts .products{

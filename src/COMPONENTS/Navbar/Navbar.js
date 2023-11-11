@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import logo from '../../ASSETS/logo.png'
 import './Navbar.css'
 import Dropdown from 'react-bootstrap/Dropdown'
+import { Link } from 'react-router-dom'
+
 const Navbar = () => {
   const [cartquantity, setcartquantity] = useState(0)
   return (
@@ -34,6 +36,9 @@ const Navbar = () => {
 
       </div>
       <div className='s2'>
+        <Link to='/'>
+          <a>Home</a>
+        </Link>
       <Dropdown>
       <Dropdown.Toggle variant="" id="dropdown-basic">
         Categorias
@@ -45,8 +50,15 @@ const Navbar = () => {
         <Dropdown.Item href="#/action-3">Teclados</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-    <a>Sobre nos</a>
-    <a>Contato</a>
+
+    <Link to='/about'>
+      <a>Sobre nos</a>
+    </Link>
+    
+    <Link to='/contact'>
+      <a>Contato</a>
+    </Link>
+
     <Dropdown>
       <Dropdown.Toggle variant="" id="dropdown-basic">
         Mais

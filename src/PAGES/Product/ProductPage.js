@@ -14,6 +14,8 @@ import Footer2 from '../../COMPONENTS/Footer/Footer2'
 import Navbar from '../../COMPONENTS/Navbar/Navbar'
 import ProductSlider from '../../COMPONENTS/Product/ProductSlider'
 import './ProductPage.css'
+import { Toast } from 'bootstrap'
+import { toast } from 'react-toastify'
 
 
 const ProductPage = () => {
@@ -184,12 +186,61 @@ const ProductPage = () => {
       discountprecent: 9,
     },
   ]
+
+  const [reloadnavbar, setreloadnavbar] = React.useState(false)
+  const addtocart = () => {
+    let cart = JSON.parse(localStorage.getItem('cart'))
+
+    if(cart){
+      //alert('ITEM JA ADICIONADO AO CARRINHO')
+      let itemincart = cart.find(item => item.productdata.ProductId === productdata.ProductId)
+      if(itemincart){
+        cart = cart.map(item => {
+          if(item.productdata.ProductId === productdata.ProductId){
+            return{
+              ...item,
+              quantity: item.quantity + count
+            }
+          }
+          else{
+            return item
+          }
+        })
+        localStorage.setItem('cart',JSON.stringify(cart))
+      }
+      else{
+        cart = [
+          ...cart,
+          {
+            productdata,
+            quantity: count
+          }
+        ]
+        localStorage.setItem('cart',JSON.stringify(cart))
+      }
+    }
+    else{
+      cart = [{
+        productdata,
+        quantity: count
+      }]
+
+      //console.log(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
+
+    setreloadnavbar(!reloadnavbar)
+    //window.location.reload()
+    toast.success('ITEM ADICIONADO AO CARRINHO')
+  }
+
   return (
     <div className='productpage'>
       {
 
       }
-      <Navbar/>
+
+      <Navbar reloadnavbar={reloadnavbar}/>
 
       <div className='pc1'>
         <Link to='/'>
@@ -253,7 +304,7 @@ const ProductPage = () => {
           <button onClick={() => {alert ('ADICIONADO AO CARRINHO')}}>
           CARRINHO
         </button>
-        <button onClick={() => {alert('COMPRAR AGORA')}}>
+        <button onClick={() => {addtocart()}}>
           COMPRAR
         </button>
         </div>

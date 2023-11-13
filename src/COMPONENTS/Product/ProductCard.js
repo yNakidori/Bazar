@@ -1,15 +1,64 @@
 import React, {useState} from 'react'
 import './ProductCard.css'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const ProductCard = ({data}) => {
 
   const [show, setshow] = useState(false)
-  const [qty, setqty] = useState(1)
+  const [count, setCount] = useState(1)
 
   //const getproductid = () =>{
   //  alert(data.id)
   //}
+
+  const addtocart = () => {
+    let cart = JSON.parse(localStorage.getItem('cart'))
+    let productdata = data
+    if(cart){
+      //alert('ITEM JA ADICIONADO AO CARRINHO')
+      let itemincart = cart.find(item => item.productdata.ProductId === productdata.ProductId)
+      if(itemincart){
+        cart = cart.map(item => {
+          if(item.productdata.ProductId === productdata.ProductId){
+            return{
+              ...item,
+              quantity: item.quantity + count
+            }
+          }
+          else{
+            return item
+          }
+        })
+        localStorage.setItem('cart',JSON.stringify(cart))
+      }
+      else{
+        cart = [
+          ...cart,
+          {
+            productdata,
+            quantity: count
+          }
+        ]
+        localStorage.setItem('cart',JSON.stringify(cart))
+      }
+    }
+    else{
+      cart = [{
+        productdata,
+        quantity: count
+      }]
+
+      //console.log(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
+
+    //setreloadnavbar(!reloadnavbar)
+    window.location.reload()
+    //toast.success('ITEM ADICIONADO AO CARRINHO')
+
+
+  }
   return (
     <div className='product'>
         <div className='s1'>
@@ -34,21 +83,22 @@ const ProductCard = ({data}) => {
             <div className='qty'>
               <button
               onClick={()=>{
-                if(qty > 1){
-                  setqty(qty - 1)
+                if(count > 1){
+                  setCount(count - 1)
                 }
               }}
               >-</button>
-              <p>{qty}</p>
+              <p>{count}</p>
               <button
-              onClick={()=> setqty(qty + 1)}
+              onClick={()=> setCount(count + 1)}
               >+</button>
             </div>
+
             <button className='addtocart'
             onClick={()=>{
               setshow(false)
               //setqty(1)
-              alert('Produto adicionado ao carrinho')
+              addtocart()
             }}
             >
               ADICIONAR

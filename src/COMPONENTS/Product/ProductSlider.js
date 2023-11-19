@@ -30,9 +30,9 @@ const ProductSlider = ({products, categoryname}) => {
       <h1>{categoryname}</h1>
 
       <Carousel responsive={responsive} autoPlay={true} autoPlaySpeed={3000} swipeable={true} draggable={true}>
-        {products.map((item)=>{
+        {products.map((item,index)=>{
           return(
-            <ProductCard data={item} key={item.id}/>
+            <ProductCard data={item} key={index}/>
           )
         })}
       </Carousel>

@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import {Link, useParams } from 'react-router-dom'
-import img1 from '../../ASSETS/IMAGES/giftcards/ps3.jpg'
-import img2 from '../../ASSETS/IMAGES/giftcards/ps2.jpg'
-import img3 from '../../ASSETS/IMAGES/giftcards/ps1.jpg'
+
+import akkocry1 from '../../ASSETS/IMAGES/marcas/akko/akkocry1.png'
+import akkored1 from '../../ASSETS/IMAGES/marcas/akko/akkored1.png'
+import akkowine1 from '../../ASSETS/IMAGES/marcas/akko/akkowine1.png'
+import akkodemon from '../../ASSETS/IMAGES/marcas/akko/akkodemon.png'
+
 import akko1 from '../../ASSETS/IMAGES/marcas/akko/rose1.png'
 import akko2 from '../../ASSETS/IMAGES/marcas/akko/rose2.png'
 import akko3 from '../../ASSETS/IMAGES/marcas/akko/rose3.png'
@@ -99,8 +102,58 @@ const ProductPage = () => {
             },
           ]
         },
+      ],
+      "Data": [
+        {
+            "ProductId": 2,
+            "ProductName": "Switch Akko CS Green",
+            "ProductDescription": "Os switches Matcha Green, Rose Red e Ocean Blue usam molas progressivas, mas o Lavender Purple, Radiant Red e Vintage White tem a mola mais longa (22mm) entre todos os três. O objetivo de realizar a série Custom switch (CS) é oferecer mais opções aos entusiastas de teclados, pois cada pequena mudança criaria experiências de digitação distintas.",
+            "productImage": [
+              {
+                id : 1,
+                image : akko6
+              },
+            ],
+            "ProductCode": "P1",
+            "ProductCategory": "Category 1",
+            "ProductSubCategory": "Sub Category 1",
+            "ProductBrand": "Brand 1",
+            "ProductColor": "Color 1",
+            "ProductSize": "Size 1",
+            "ProductWeight": "Weight 1",
+            "ProductMaterial": "Material 1",
+            "ProductQuantity": 10,
+            "ProductUnit": "Unit 1",
+            "ProductPrice": 170,
+            "SalesPrice": 130,
+            "ProductDiscount": 20,
+            "ProductDiscountType": "Percentage",
+            "ProductTax": 20,
+            "ProductTaxType": "Percentage",
+            "ProductShippingCharge": 20,
+            "ProductShippingChargeType": "Percentage",
+            "ProductShippingTime": "1-2 days",
+            "ProductShippingTimeType": "Days",
+            "ProductShippingLocation": "Location 1",
+            "ProductShippingLocationType": "Country",
+            "ProductShippingReturnPolicy": "Return Policy 1",
+            "ProductShippingReturnPolicyType": "Days",
+            "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
+            "ProductShippingReturnPolicyDescriptionType": "Days",
+            "ProductReviews": [
+              {
+                "ReviewId": 1,
+                "Name": "Name 1",
+                "Email": "",
+                "Rating": 4,
+                "Date": "2021-07-01T00:00:00",
+                "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              }
+            ]
+          },
       ]
     }
+    
 
     if(temp.Code == 200){
       setimageset(temp.Data[0].productImage)
@@ -119,124 +172,193 @@ const ProductPage = () => {
 
   const products = [
     {
-      "ProductId": 2,
-      "ProductName": "Product Switch Akko CS Rose Red",
-      "ProductDescription": "Os switches Matcha Green, Rose Red e Ocean Blue usam molas progressivas, mas o Lavender Purple, Radiant Red e Vintage White tem a mola mais longa (22mm) entre todos os três. O objetivo de realizar a série Custom switch (CS) é oferecer mais opções aos entusiastas de teclados, pois cada pequena mudança criaria experiências de digitação distintas.",
-      "productImage": [
-        {
-          id : 1,
-          image : img1
-        },
-        {
-          id : 2,
-          image : img2
-        },
-        {
-          id : 3,
-          image : img3
-        }
-      ],
-      "ProductCode": "P1",
-      "ProductCategory": "Category 1",
-      "ProductSubCategory": "Sub Category 1",
-      "ProductBrand": "Brand 1",
-      "ProductColor": "Color 1",
-      "ProductSize": "Size 1",
-      "ProductWeight": "Weight 1",
-      "ProductMaterial": "Material 1",
-      "ProductQuantity": 10,
-      "ProductUnit": "Unit 1",
-      "ProductPrice": 100,
-      "SalesPrice": 80,
-      "ProductDiscount": 20,
-      "ProductDiscountType": "Percentage",
-      "ProductTax": 20,
-      "ProductTaxType": "Percentage",
-      "ProductShippingCharge": 20,
-      "ProductShippingChargeType": "Percentage",
-      "ProductShippingTime": "1-2 days",
-      "ProductShippingTimeType": "Days",
-      "ProductShippingLocation": "Location 1",
-      "ProductShippingLocationType": "Country",
-      "ProductShippingReturnPolicy": "Return Policy 1",
-      "ProductShippingReturnPolicyType": "Days",
-      "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
-      "ProductShippingReturnPolicyDescriptionType": "Days",
-      "ProductReviews": [
-        {
-          "ReviewId": 1,
-          "Name": "Name 1",
-          "Email": "",
-          "Rating": 4,
-          "Date": "2021-07-01T00:00:00",
-          "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-      ]
-    },
-    {
-      "ProductId": 1,
-      "ProductName": "Product 1",
-      "ProductDescription": "Leve a experiência de jogo e entretenimento para um novo nível com o Gift Card PSN. Este cartão é a chave para um vasto universo de conteúdo digital, permitindo que você explore jogos incríveis, filmes emocionantes e músicas envolventes diretamente na sua plataforma PlayStation.Recarregue sua carteira virtual com o Gift Card PSN e desfrute da liberdade de escolher entre uma ampla variedade de jogos, pacotes de expansão, filmes, programas de TV e músicas. Personalize sua experiência de entretenimento de acordo com seus gostos e preferências. Além disso, o Gift Card PSN é o presente perfeito para os amantes de jogos em sua vida. Deixe que eles escolham o que desejam, seja um novo título de sucesso, um filme blockbuster ou a trilha sonora perfeita para suas sessões de jogo. Não perca a oportunidade de proporcionar momentos inesquecíveis de diversão digital. Adquira seu Gift Card PSN agora e abra as portas para um mundo de entretenimento sem limites.",
-      "productImage": [
-        {
-          id : 1,
-          image : img1
-        },
-        {
-          id : 2,
-          image : img2
-        },
-        {
-          id : 3,
-          image : img3
-        }
-      ],
-      "ProductCode": "P1",
-      "ProductCategory": "Category 1",
-      "ProductSubCategory": "Sub Category 1",
-      "ProductBrand": "Brand 1",
-      "ProductColor": "Color 1",
-      "ProductSize": "Size 1",
-      "ProductWeight": "Weight 1",
-      "ProductMaterial": "Material 1",
-      "ProductQuantity": 10,
-      "ProductUnit": "Unit 1",
-      "ProductPrice": 100,
-      "SalesPrice": 80,
-      "ProductDiscount": 20,
-      "ProductDiscountType": "Percentage",
-      "ProductTax": 20,
-      "ProductTaxType": "Percentage",
-      "ProductShippingCharge": 20,
-      "ProductShippingChargeType": "Percentage",
-      "ProductShippingTime": "1-2 days",
-      "ProductShippingTimeType": "Days",
-      "ProductShippingLocation": "Location 1",
-      "ProductShippingLocationType": "Country",
-      "ProductShippingReturnPolicy": "Return Policy 1",
-      "ProductShippingReturnPolicyType": "Days",
-      "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
-      "ProductShippingReturnPolicyDescriptionType": "Days",
-      "ProductReviews": [
-        {
-          "ReviewId": 1,
-          "Name": "Name 1",
-          "Email": "",
-          "Rating": 4,
-          "Date": "2021-07-01T00:00:00",
-          "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-        {
-          "ReviewId": 1,
-          "Name": "Name 1",
-          "Email": "",
-          "Rating": 1,
-          "Date": "2021-07-01T00:00:00",
-          "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        }
-      ]
-    },
-    
+        "ProductId": 4,
+        "ProductName": "Switch Akko CS Crystal",
+        "ProductDescription": "Os switches Matcha Green, Rose Red e Ocean Blue usam molas progressivas, mas o Lavender Purple, Radiant Red e Vintage White tem a mola mais longa (22mm) entre todos os três. O objetivo de realizar a série Custom switch (CS) é oferecer mais opções aos entusiastas de teclados, pois cada pequena mudança criaria experiências de digitação distintas.",
+        "productImage": [
+          {
+            id : 1,
+            image : akkocry1
+          },
+        ],
+        "ProductCode": "P1",
+        "ProductCategory": "Category 1",
+        "ProductSubCategory": "Sub Category 1",
+        "ProductBrand": "Brand 1",
+        "ProductColor": "Color 1",
+        "ProductSize": "Size 1",
+        "ProductWeight": "Weight 1",
+        "ProductMaterial": "Material 1",
+        "ProductQuantity": 10,
+        "ProductUnit": "Unit 1",
+        "ProductPrice": 170,
+        "SalesPrice": 130,
+        "ProductDiscount": 20,
+        "ProductDiscountType": "Percentage",
+        "ProductTax": 20,
+        "ProductTaxType": "Percentage",
+        "ProductShippingCharge": 20,
+        "ProductShippingChargeType": "Percentage",
+        "ProductShippingTime": "1-2 days",
+        "ProductShippingTimeType": "Days",
+        "ProductShippingLocation": "Location 1",
+        "ProductShippingLocationType": "Country",
+        "ProductShippingReturnPolicy": "Return Policy 1",
+        "ProductShippingReturnPolicyType": "Days",
+        "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
+        "ProductShippingReturnPolicyDescriptionType": "Days",
+        "ProductReviews": [
+          {
+            "ReviewId": 1,
+            "Name": "Name 1",
+            "Email": "",
+            "Rating": 4,
+            "Date": "2021-07-01T00:00:00",
+            "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          }
+        ]
+      },
+      {
+        "ProductId": 5,
+        "ProductName": "Switch Akko CS Red",
+        "ProductDescription": "Os switches Matcha Green, Rose Red e Ocean Blue usam molas progressivas, mas o Lavender Purple, Radiant Red e Vintage White tem a mola mais longa (22mm) entre todos os três. O objetivo de realizar a série Custom switch (CS) é oferecer mais opções aos entusiastas de teclados, pois cada pequena mudança criaria experiências de digitação distintas.",
+        "productImage": [
+          {
+            id : 1,
+            image : akkored1
+          },
+        ],
+        "ProductCode": "P1",
+        "ProductCategory": "Category 1",
+        "ProductSubCategory": "Sub Category 1",
+        "ProductBrand": "Brand 1",
+        "ProductColor": "Color 1",
+        "ProductSize": "Size 1",
+        "ProductWeight": "Weight 1",
+        "ProductMaterial": "Material 1",
+        "ProductQuantity": 10,
+        "ProductUnit": "Unit 1",
+        "ProductPrice": 190,
+        "SalesPrice": 140,
+        "ProductDiscount": 20,
+        "ProductDiscountType": "Percentage",
+        "ProductTax": 20,
+        "ProductTaxType": "Percentage",
+        "ProductShippingCharge": 20,
+        "ProductShippingChargeType": "Percentage",
+        "ProductShippingTime": "1-2 days",
+        "ProductShippingTimeType": "Days",
+        "ProductShippingLocation": "Location 1",
+        "ProductShippingLocationType": "Country",
+        "ProductShippingReturnPolicy": "Return Policy 1",
+        "ProductShippingReturnPolicyType": "Days",
+        "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
+        "ProductShippingReturnPolicyDescriptionType": "Days",
+        "ProductReviews": [
+          {
+            "ReviewId": 1,
+            "Name": "Name 1",
+            "Email": "",
+            "Rating": 4,
+            "Date": "2021-07-01T00:00:00",
+            "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          }
+        ]
+      },
+      {
+        "ProductId": 6,
+        "ProductName": "Switch Akko CS Wine",
+        "ProductDescription": "Os switches Matcha Green, Rose Red e Ocean Blue usam molas progressivas, mas o Lavender Purple, Radiant Red e Vintage White tem a mola mais longa (22mm) entre todos os três. O objetivo de realizar a série Custom switch (CS) é oferecer mais opções aos entusiastas de teclados, pois cada pequena mudança criaria experiências de digitação distintas.",
+        "productImage": [
+          {
+            id : 1,
+            image : akkowine1
+          },
+        ],
+        "ProductCode": "P1",
+        "ProductCategory": "Category 1",
+        "ProductSubCategory": "Sub Category 1",
+        "ProductBrand": "Brand 1",
+        "ProductColor": "Color 1",
+        "ProductSize": "Size 1",
+        "ProductWeight": "Weight 1",
+        "ProductMaterial": "Material 1",
+        "ProductQuantity": 10,
+        "ProductUnit": "Unit 1",
+        "ProductPrice": 190,
+        "SalesPrice": 140,
+        "ProductDiscount": 20,
+        "ProductDiscountType": "Percentage",
+        "ProductTax": 20,
+        "ProductTaxType": "Percentage",
+        "ProductShippingCharge": 20,
+        "ProductShippingChargeType": "Percentage",
+        "ProductShippingTime": "1-2 days",
+        "ProductShippingTimeType": "Days",
+        "ProductShippingLocation": "Location 1",
+        "ProductShippingLocationType": "Country",
+        "ProductShippingReturnPolicy": "Return Policy 1",
+        "ProductShippingReturnPolicyType": "Days",
+        "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
+        "ProductShippingReturnPolicyDescriptionType": "Days",
+        "ProductReviews": [
+          {
+            "ReviewId": 1,
+            "Name": "Name 1",
+            "Email": "",
+            "Rating": 4,
+            "Date": "2021-07-01T00:00:00",
+            "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          }
+        ]
+      },
+      {
+        "ProductId": 7,
+        "ProductName": "Switch Akko CS Demon",
+        "ProductDescription": "Os switches Matcha Green, Rose Red e Ocean Blue usam molas progressivas, mas o Lavender Purple, Radiant Red e Vintage White tem a mola mais longa (22mm) entre todos os três. O objetivo de realizar a série Custom switch (CS) é oferecer mais opções aos entusiastas de teclados, pois cada pequena mudança criaria experiências de digitação distintas.",
+        "productImage": [
+          {
+            id : 1,
+            image : akkodemon
+          },
+        ],
+        "ProductCode": "P1",
+        "ProductCategory": "Category 1",
+        "ProductSubCategory": "Sub Category 1",
+        "ProductBrand": "Brand 1",
+        "ProductColor": "Color 1",
+        "ProductSize": "Size 1",
+        "ProductWeight": "Weight 1",
+        "ProductMaterial": "Material 1",
+        "ProductQuantity": 10,
+        "ProductUnit": "Unit 1",
+        "ProductPrice": 220,
+        "SalesPrice": 160,
+        "ProductDiscount": 20,
+        "ProductDiscountType": "Percentage",
+        "ProductTax": 20,
+        "ProductTaxType": "Percentage",
+        "ProductShippingCharge": 20,
+        "ProductShippingChargeType": "Percentage",
+        "ProductShippingTime": "1-2 days",
+        "ProductShippingTimeType": "Days",
+        "ProductShippingLocation": "Location 1",
+        "ProductShippingLocationType": "Country",
+        "ProductShippingReturnPolicy": "Return Policy 1",
+        "ProductShippingReturnPolicyType": "Days",
+        "ProductShippingReturnPolicyDescription": "Return Policy Description 1",
+        "ProductShippingReturnPolicyDescriptionType": "Days",
+        "ProductReviews": [
+          {
+            "ReviewId": 1,
+            "Name": "Name 1",
+            "Email": "",
+            "Rating": 4,
+            "Date": "2021-07-01T00:00:00",
+            "Review": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          }
+        ]
+      },
   ]
 
   const [reloadnavbar, setreloadnavbar] = React.useState(false)
@@ -634,11 +756,9 @@ const ProductPage = () => {
             </div>
 
             <div className='slidercont'>
-                <ProductSlider products={products} categoryname='Related Products' />
+                <ProductSlider products={products} categoryname='Relacionados' />
             </div>
-            <div className='slidercont'>
-                <ProductSlider products={products} categoryname='Explore More' />
-            </div>
+           
             <Footer1 />
             <Footer2 />
         </div>

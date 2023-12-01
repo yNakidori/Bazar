@@ -1,59 +1,95 @@
-import React from 'react'
-import Footer1 from '../../COMPONENTS/Footer/Footer1'
-import Footer2 from '../../COMPONENTS/Footer/Footer2'
-import Navbar from '../../COMPONENTS/Navbar/Navbar'
-import SingleBanner from '../../COMPONENTS/Banners/SingleBanner'
-import './Cart.css'
-import './CartContainer.css'
-import './Progress.css'
+import React, { useEffect, useState } from 'react';
+import Footer1 from '../../COMPONENTS/Footer/Footer1';
+import Footer2 from '../../COMPONENTS/Footer/Footer2';
+import Navbar from '../../COMPONENTS/Navbar/Navbar';
+import SingleBanner from '../../COMPONENTS/Banners/SingleBanner';
+import './Cart.css';
+import './CartContainer.css';
+import './Progress.css';
+import './ShippingContainer.css';
+import './PaymentContainer.css';
+import './OrderSucessfull.css';
+import OrderConfirmation from '../Auth/OrderConfirmation';
+import { salvarPedidoNoFirebase } from './firebaseFunctions';
 
 const Cart = () => {
-  const [cartdata, setcartdata] = React.useState([])
-  const [subtotal, setsubtotal] = React.useState(0)
-  const [shipping, setshipping] = React.useState(0)
-  const [active, setactive] = React.useState(1)
-  const [tax, settax] = React.useState(0)
+  const [cartdata, setcartdata] = React.useState([]);
+  const [subtotal, setsubtotal] = React.useState(0);
+  const [shipping, setshipping] = React.useState(0);
+  const [active, setactive] = React.useState(1);
+  const [tax, settax] = React.useState(0);
+  const [deliverydate, setdeliverydate] = React.useState(
+    new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+  );
+
+  const [orderDetails, setOrderDetails] = React.useState(null);
 
   const getcartitemsfromlocalstorage = () => {
-    let cart = JSON.parse(localStorage.getItem('cart'))
-    if(cart) {
-      console.log(cart)
-      setcartdata(cart)
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart) {
+      console.log(cart);
+      setcartdata(cart);
 
-      let tempsubtotal = 0
-      cart.forEach(item => {
-        tempsubtotal += item.productdata.SalesPrice * item.quantity
-      })
-      //console.log(tempsubtotal)
-      setsubtotal(tempsubtotal)
-      setshipping(80)
-      settax(tempsubtotal * 0.18 + tempsubtotal + 80*0.10)
-      setreloadnavbar(!reloadnavbar)
+      let tempsubtotal = 0;
+      cart.forEach((item) => {
+        tempsubtotal += item.productdata.SalesPrice * item.quantity;
+      });
+
+      setsubtotal(tempsubtotal);
+      setshipping(80);
+      settax(tempsubtotal * 0.18 + tempsubtotal + 80 * 0.10);
+    } else {
+      console.log('Carrinho vazio');
     }
-    else{
-      console.log('Carrinho vazio')
-      setreloadnavbar(!reloadnavbar)
-    }
-  }
+  };
 
   React.useEffect(() => {
-    getcartitemsfromlocalstorage()
-  }, [])
+    getcartitemsfromlocalstorage();
+  }, []);
+
+  React.useEffect(() => {
+    if (active === 4) {
+      const orderDetailsData = {
+        items: cartdata,
+        subtotal: subtotal.toFixed(2),
+        shipping: shipping.toFixed(2),
+        tax: tax.toFixed(2),
+        total: (tax + subtotal + shipping).toFixed(2),
+      };
+
+      setOrderDetails(orderDetailsData);
+    }
+  }, [active, cartdata, subtotal, shipping, tax]);
 
   const checklogin = () => {
-    return true
-  }
+    return true;
+  };
 
-  const [reloadnavbar, setreloadnavbar] = React.useState(false)
+  const [reloadnavbar, setreloadnavbar] = React.useState(false);
 
-  const removeitemfromcart = (index) =>{
-    //alert(index)
-    let temp = [...cartdata]
-    temp.splice(index, 1)
-    setcartdata(temp)
-    localStorage.setItem('cart', JSON.stringify(temp))
-    getcartitemsfromlocalstorage()
-  }
+  const removeitemfromcart = (index) => {
+    let temp = [...cartdata];
+    temp.splice(index, 1);
+    setcartdata(temp);
+    localStorage.setItem('cart', JSON.stringify(temp));
+    getcartitemsfromlocalstorage();
+  };
+
+  const savedaddress = [
+    {
+      AdressLine1: 'Rua',
+      AdressLine2: 'Bairro',
+      AdressLine3: 'Cidade',
+      postalcode: `00000000`,
+    },
+    {
+      AdressLine1: 'Rua',
+      AdressLine2: 'Bairro',
+      AdressLine3: 'Cidade',
+      postalcode: `00000000`,
+    },
+  ];
+  
   return (
     <div>
       <Navbar reloadnavbar={reloadnavbar}/>
@@ -325,23 +361,124 @@ const Cart = () => {
           {
             active == 2 &&
             <div className='shippingcont'>
-              <p>Envio</p>
+              <div className='selectdate'>
+                <h2 className='mainhead1'>Escolha a data de entrega</h2>
+                <input
+                min={new Date(new Date().getTime() + 2*24*60*60*1000).toISOString().split('T')[0]}
+                type='date'
+                value={deliverydate}
+                onChange={(e) => {
+                  setdeliverydate(e.target.value)
+                }}
+                />
+                </div>
+
+                <div className='previous'>
+                  <h2 className='mainhead1'>Enderecos utilizados anteriormente</h2>
+                  {
+                    savedaddress.length > 0 ?
+                    savedaddress.map((item, index) => {
+                      return(
+                        <div className='radio' key={index}>
+                          <input type='radio' name='address' id={index}/>
+                          <span>
+                            {
+                              item.AdressLine1 + ', ' + item.AdressLine2 + ', ' + item.AdressLine3 + ', ' + item.postalcode
+                            }
+                          </span>
+                        </div>
+                      )
+                    })
+                    :
+                    <div className='emptyaddress'>
+                      <p>Nenhum endereco localizado</p>
+                    </div>
+                  }
+                </div>
+                <h3>OU</h3>
+                <div className='shippingadd'>
+                  <input type='text' placeholder='Endereco de entrega'/>
+                  <input type='text' placeholder='Complemento'/>
+                  <input type='text' placeholder='Bairro'/>
+                  <input type='text' placeholder='CEP'/>
+                  <button>Salvar</button>
+                </div>
+                
+              
             </div>
           }
 {/* */}
           {
             active == 3 &&
             <div className='paymentcont'>
-              <p>Pagamento</p>
+              <h2 className='mainhead1'>Selecione a forma de pagamento</h2>
+              <div className='paymenttypes'>
+                <div className='c1'>
+                  <input type='radio' name='payment' id='payment1'/>
+                  <img src='https://s2-techtudo.glbimg.com/8CYJpCx54gNyNrHWwm2x9-DHAiw=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/T/d/9KN7bBSd6UKk4hcitczA/marca-pix-1-.jpg'
+                  alt='pix'/>
+                </div>
+
+                <div className='c1'>
+                  <input type='radio' name='payment' id='payment1'/>
+                  <img src='https://www.dsgadvogados.com.br/wp-content/uploads/2017/02/boleto-banc%C3%A1rio-aliexpress.jpg'
+                  alt='boleto'/>
+                </div>
+
+                <div className='c1'>
+                  <input type='radio' name='payment' id='payment1'/>
+                  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/2560px-Mastercard_2019_logo.svg.png'
+                  alt='cartao'/>
+                </div>
+              </div>
+
+              <div className='paymentagreement'>
+                <input type='checkbox' name='agreement' id='agreement'/>
+                <label htmlFor='agreement'>Eu concordo com os termos e condicoes</label>
+              </div>
+
+              <div className='c2'>
+                <span>Total:</span>
+                &nbsp;&nbsp;
+                <span>R$ {(subtotal+tax+shipping).toFixed(2)}</span>
+              </div>
             </div>
           }
 {/* */}
-          {
-            active == 4 &&
-            <div className='ordersuccessfull'>
-              <p>Pedido concluido</p>
-            </div>
-          }
+{
+  active === 4 && (
+    <div className='order-summary'>
+      {/* ... (seu código existente) */}
+      <button
+  className='nextbtn'
+  onClick={() => {
+    alert('Pedido concluído');
+    setOrderDetails({
+      items: cartdata,
+      subtotal,
+      shipping,
+      tax,
+      total: (subtotal + shipping + tax).toFixed(2),
+    });
+
+    salvarPedidoNoFirebase({
+      items: cartdata,
+      subtotal,
+      shipping,
+      tax,
+      total: (subtotal + shipping + tax).toFixed(2),
+    });
+
+    setactive(5);
+  }}
+>
+  Confirmar Pedido
+</button>
+    </div>
+  )
+}
+
+{active === 5 && <OrderConfirmation />}
 
 
 {/* */}
@@ -398,7 +535,8 @@ const Cart = () => {
             >Voltar</button>*/}
               <button className='nextbtn'
               onClick={() => {
-                alert('Pedido concluido')            
+                alert('Pedido concluido')  
+                window.location.href = '/'
               }}
               >Voltar para Home</button>
             </div>

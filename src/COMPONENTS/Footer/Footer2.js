@@ -11,7 +11,6 @@ const Footer2 = () => {
         <div className='ft1'>
           <img src={logo} alt='logo' className='logo' />
           <p>
-            lorem ipsum dolor sit amet 
              
           </p>
           <img src={social} alt='social' className='social' />

@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import logo from '../../ASSETS/logo.png'
-import './Navbar.css'
-import Dropdown from 'react-bootstrap/Dropdown'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import logo from '../../ASSETS/logo.png';
+import './Navbar.css';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { Link } from 'react-router-dom';
 
-const Navbar = ({reloadnavbar}) => {
-  const [cartquantity, setcartquantity] = useState(0)
+const Navbar = ({ reloadnavbar }) => {
+  const [cartquantity, setcartquantity] = useState(0);
 
   const getcarttotalitems = () => {
-    let cart = JSON.parse(localStorage.getItem('cart'))
+    let cart = JSON.parse(localStorage.getItem('cart'));
     if (cart) {
-      let total = 0
+      let total = 0;
       cart.forEach(item => {
-        total += item.quantity
-      })
-      setcartquantity(total)
+        total += item.quantity;
+      });
+      setcartquantity(total);
+    } else {
+      setcartquantity(0);
     }
-    else{
-      setcartquantity(0)
-    }
-  }
+  };
 
   useEffect(() => {
-    getcarttotalitems()
-  }, [reloadnavbar])
+    getcarttotalitems();
+  }, [reloadnavbar]);
+
   return (
     <nav> 
       <div className='s1'>
@@ -60,10 +60,13 @@ const Navbar = ({reloadnavbar}) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="/login">Login</Dropdown.Item>
+              <Dropdown.Item href="/signin">Minha conta</Dropdown.Item>
+              <Dropdown.Item href='/sgup'>Criar Conta</Dropdown.Item>
+              <Dropdown.Item href='/inventorylog'>Inventario</Dropdown.Item>
+              {/*<Dropdown.Item href="/login">Login</Dropdown.Item>
               <Dropdown.Item href="/signup">Registro</Dropdown.Item>
               <Dropdown.Item href="#">Perfil</Dropdown.Item>
-              <Dropdown.Item href="#">Sair</Dropdown.Item>
+              <Dropdown.Item href="#">Sair</Dropdown.Item>*/}
             </Dropdown.Menu>
           </Dropdown>
 
@@ -80,11 +83,12 @@ const Navbar = ({reloadnavbar}) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Novidades</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Mouses</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Teclados</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+            {/* Utilize o componente Link para garantir a navegação correta */}
+            <Dropdown.Item as={Link} to="/">Novidades</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/mouses">Mouses</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/teclados">Teclados</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
 
     <Link to='/about'>
       <a>Sobre nos</a>
@@ -100,9 +104,9 @@ const Navbar = ({reloadnavbar}) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">FAQ</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Politicas de privacidade</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Termos e condicoes</Dropdown.Item>
+      <Dropdown.Item as={Link} to="/">Novidades</Dropdown.Item>
+      <Dropdown.Item as={Link} to="/mouses">Mouses</Dropdown.Item>
+      <Dropdown.Item as={Link} to="/teclados">Teclados</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
 
